@@ -4,7 +4,7 @@ import statistics
 
 #slow ass function
 def findDoubleWord():
-    with open(r"C:\Users\thomw\Documents\Programming\Networking\Learning Brief 2.1\wiki-10k.txt", "r") as text:
+    with open(r"wiki-10k.txt", "r") as text:
         words = text.read().splitlines()
         words.sort()
         for i in words:
@@ -15,7 +15,7 @@ def findDoubleWord():
 
 #much much faster chad sigma male christion bale function
 def findDoubleWord2():
-    with open(r"C:\Users\thomw\Documents\Programming\Networking\Learning Brief 2.1\wiki-10k.txt", "r") as text:
+    with open(r"wiki-10k.txt", "r") as text:
         words = text.read().splitlines()
         words.sort()
         for i in range(0,len(words) - 1):
@@ -27,7 +27,7 @@ def findDoubleWord2():
 
 #cringe azhar function
 def findDoubleWord3():
-    with open(r"C:\Users\thomw\Documents\Programming\Networking\Learning Brief 2.1\wiki-10k.txt", "r") as text:
+    with open(r"wiki-10k.txt", "r") as text:
         words = text.read().splitlines()
         words.sort()
         wordsCached = []

@@ -2,7 +2,7 @@
 
 highest_score = float(0)
 lowest_score = float(11)
-with open(r"Networking\Learning Brief 1.5\report.txt", "r") as input:
+with open(r"report.txt", "r") as input:
     for i in input:
         if float(highest_score) <= float(i):
             highest_score = i

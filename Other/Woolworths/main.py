@@ -60,6 +60,36 @@ def saveData(products, page):
     print("Finished Saving")
 
 
+def saveDataBad(products, page):
+    print("\n\nsaving...")
+    row = (today - start_date).days + 2
+    workbook = load_workbook("data.xlsx")
+    sheet = workbook[page]
+    
+    sheet.cell(row = row, column = 1).value = today
+    sorted(products)
+    productCol = 0
+    skipped = 0
+    
+    for i in range(len(products)):
+        cell = sheet.cell(row=1, column = i+1+skipped)
+        if(list(products.keys())[i] == cell.value):
+            cellval = sheet.cell(row = row,column = i+1+skipped).value = list(products.values())[i]
+        else:
+            skipped+=1
+            checker = [list(products.values())[i],sheet.cell(row = row,column = i+1+skipped).value]
+            checker.sort()
+            while(checker[0] == list(products.values())[i]):
+                if(checker[0] == checker[1]):
+                    print("found column")
+                    break
+                skipped+=1
+                checker[1] = sheet.cell(row = row,column = i+1+skipped).value
+                checker.sort()
+            if(checker[0]!=list(products.values())[i]):
+                print("inserted")
+
+
 def scrapeAllPage(URL):
     driver = webdriver.Firefox()
     driver.get(URL)
@@ -71,7 +101,7 @@ def scrapeAllPage(URL):
         element.parentNode.removeChild(element);
     """)
     time.sleep(5)
-    for i in range(100): 
+    while True:
         try:
             products.update(scrapePage(driver))
         except Exception as e:
@@ -85,7 +115,7 @@ def scrapeAllPage(URL):
                 break
         try:
             nextPage(driver)
-        except selenium.common.exceptions.NoSuchElementException:
+        except:
             print("Error clicking next page")
             driver.refresh()
             time.sleep(10)
@@ -94,15 +124,12 @@ def scrapeAllPage(URL):
             except:
                 print("two times filed assuming end of pages")
                 break
+    driver.stop_client()
     saveData(products,URL.split("/")[-1])
     
 
 
-URLS = []
-
-"""
-    already done
-        "https://www.woolworths.com.au/shop/browse/fruit-veg",
+URLS = ["https://www.woolworths.com.au/shop/browse/fruit-veg",
         "https://www.woolworths.com.au/shop/browse/meat-seafood-deli",
         "https://www.woolworths.com.au/shop/browse/bakery",
         "https://www.woolworths.com.au/shop/browse/dairy-eggs-fridge",
@@ -110,24 +137,30 @@ URLS = []
         "https://www.woolworths.com.au/shop/browse/lunch-box",
         "https://www.woolworths.com.au/shop/browse/freezer",
         "https://www.woolworths.com.au/shop/browse/drinks",
-
-    fucking massive
         "https://www.woolworths.com.au/shop/browse/pantry",
-
-    who cares    
         "https://www.woolworths.com.au/shop/browse/health-wellness",
         "https://www.woolworths.com.au/shop/browse/liquor",
         "https://www.woolworths.com.au/shop/browse/pet",
         "https://www.woolworths.com.au/shop/browse/baby",
         "https://www.woolworths.com.au/shop/browse/beauty-personal-care",
-        "https://www.woolworths.com.au/shop/browse/household"
+        "https://www.woolworths.com.au/shop/browse/household"]
+
+"""
+    already done
+
+
+    fucking massive
+       
+
+    who cares    
+
 
 """
 
-wb = load_workbook("data.xlsx")
+"""wb = load_workbook("data.xlsx")
 for i in URLS:
     wb.create_sheet(i.split("/")[-1])
-wb.save("data.xlsx")
+wb.save("data.xlsx")"""
 start_date = date.fromisocalendar(2023, 12, 4)
 today = date.today()
 print((today - start_date).days + 2)

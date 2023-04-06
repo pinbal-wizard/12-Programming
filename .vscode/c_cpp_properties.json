@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "IT/Lessons/Pointers/"
             ],
             "defines": [
                 "_DEBUG",

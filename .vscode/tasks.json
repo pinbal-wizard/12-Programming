@@ -2,13 +2,13 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "typescript",
-			"tsconfig": "Vscode/mytask/tsconfig.json",
-			"problemMatcher": [
-				"$tsc"
-			],
-			"group": "build",
-			"label": "tsc: build - Vscode/mytask/tsconfig.json"
+			"label": "Build",
+			"type": "shell",
+			"command":"ccg ${relativeFile}",
+			"group": {
+                "kind": "build",
+                "isDefault": true
+            }
 		}
 	]
 }

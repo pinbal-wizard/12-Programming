@@ -1,28 +1,40 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 
-int bitpatternSearch(unsigned int search, unsigned int pattern, unsigned int n){
+int bitPatternSearch(unsigned int search, unsigned int pattern, unsigned int n){
     int arr[16];
+    int *arr2 = malloc(sizeof(pattern));
     for(int i = 16; i > 0; i--){
-        printf("%i ",i);
-        printf("%i",search & 1);
         arr[i-1] = search & 1;
         search = search >> 1;
-        printf("\n");
     }
 
-    printf("\n\n\n\n\n\n\n\n");
-    for(int i = 0;i < 16; i++){
-        printf("%i ",arr[i]);
+    for(int i = n; i > 0; i--){
+        arr2[i-1] = pattern & 1;
+        pattern = pattern >> 1;
     }
-    printf("\n1 1 1 0 0 0 0 1 1 1 1 1 0 1 0 0");
-    return 0;
+
+    for(int i = 0; i < 16 - n; ++i){
+        printf("%i\n",i);
+        int cBits = 0;
+        for(int j = 0;j < n; ++j){
+            if(arr[i + j] == arr2[j]){
+                printf("%i bit of arr is same as %i bit of arr2\n",i,j);
+                ++cBits;
+            }
+            if(cBits == n){
+                return i;
+            }
+        }
+    }
+    return -1;
 }
 
 
 int main(void) {
-    bitpatternSearch(0xe1f4,0x5, 3);
-    //printf("%i", 1 ); //1110 0001 1111 0100 //101 //3 // should return 11
+    printf("\n\n %i \n\n",bitPatternSearch(0xe1f4,0x5, 3));
+    //printf("%i", 1 ); 1110 0001 1111 0100 ,101 ,3  should return 11
 }                     //0010 1111 1000 0111 0
 
 

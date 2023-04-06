@@ -1,20 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum Type {String, Char, Int, LinkedList};
+enum Type {String, Char, Int, LList};
 
-struct LinkedList
+typedef struct Node
 {
     void* val;
-    struct LinkedList *next;
-}; 
+    struct Node *next;
+}LinkedList; 
 
 
 //find index of a item in list -1 if not in
-int getIndex(struct LinkedList *head, void* val){
-    struct LinkedList *current = head;
+int getIndex(LinkedList *head, void* val){
+    LinkedList *current = head;
     int i = 0;
-
     while (current != NULL && current->val != val) {
     current = current->next;
     i++;
@@ -28,8 +27,8 @@ int getIndex(struct LinkedList *head, void* val){
 
 
 //find value at index
-void* getValue(struct LinkedList *head, int index){
-    struct LinkedList *current = head;
+void* getValue(LinkedList *head, int index){
+    LinkedList *current = head;
     int i = 0;
 
     while (current != NULL && i != index) {
@@ -42,13 +41,13 @@ void* getValue(struct LinkedList *head, int index){
 
 
 //add a LinkedList(value) to the end of the list
-void append(struct LinkedList *LinkedListPointer,void* val){
+void append(LinkedList *LinkedListPointer,void* val){
     while (LinkedListPointer->next != NULL ) {
         //printf("LinkedList at %p contains ( %p , %d)\n",LinkedListPointer, LinkedListPointer->next, LinkedListPointer->val);
         LinkedListPointer = LinkedListPointer->next;
     }
     
-    LinkedListPointer->next = (struct LinkedList*) malloc(sizeof(struct LinkedList));
+    LinkedListPointer->next = (LinkedList*) malloc(sizeof(LinkedList));
     LinkedListPointer->next->val = val;
     LinkedListPointer->next->next = NULL;
     //printf("%p",LinkedListPointer);
@@ -57,7 +56,7 @@ void append(struct LinkedList *LinkedListPointer,void* val){
 
 
 //add an array to a LinkedList(value) to the end of the linkedList
-void appendArray(struct LinkedList *LinkedListPointer ,int values[],int valuesLength){
+void appendArray(LinkedList *LinkedListPointer ,int values[],int valuesLength){
     while (LinkedListPointer->next != NULL ) {
         //printf("LinkedList at %p contains ( %p , %d)\n",LinkedListPointer, LinkedListPointer->next, LinkedListPointer->val);
         LinkedListPointer = LinkedListPointer->next;
@@ -65,7 +64,7 @@ void appendArray(struct LinkedList *LinkedListPointer ,int values[],int valuesLe
     
     for(int i = 0; i < valuesLength; i++){
         //printf("LinkedList at %p contains ( %p , %d)\n",LinkedListPointer, LinkedListPointer->next, LinkedListPointer->val);
-        LinkedListPointer->next = (struct LinkedList*) malloc(sizeof(struct LinkedList));
+        LinkedListPointer->next = (LinkedList*) malloc(sizeof(LinkedList));
         //printf("%i",values[i]);
         LinkedListPointer->next->val = (void*)values[i];
         LinkedListPointer->next->next = NULL;
@@ -78,9 +77,9 @@ void appendArray(struct LinkedList *LinkedListPointer ,int values[],int valuesLe
 
 
 //remove a LinkedList from the list based of value
-void removeNode(struct LinkedList **head, void* val) {
-    struct LinkedList *prev = NULL;
-    struct LinkedList *current = *head;
+void removeNode(LinkedList **head, void* val) {
+    LinkedList *prev = NULL;
+    LinkedList *current = *head;
 
     while (current != NULL) {
         if (current->val == val) {
@@ -99,9 +98,9 @@ void removeNode(struct LinkedList **head, void* val) {
 
 
 //remove a LinkedList from the list based of index
-void removeAt(struct LinkedList **head, int index) {
-    struct LinkedList *prev = NULL;
-    struct LinkedList *current = *head;
+void removeAt(LinkedList **head, int index) {
+    LinkedList *prev = NULL;
+    LinkedList *current = *head;
     int i = 0;
 
     while(i != index && current != NULL){
@@ -122,8 +121,8 @@ void removeAt(struct LinkedList **head, int index) {
 
 
 //set a value at a certain index
-void setValue(struct LinkedList *head, int index, void* newVal){
-    struct LinkedList *current = head;
+void setValue(LinkedList *head, int index, void* newVal){
+    LinkedList *current = head;
     int i = 0;
     while(i != index && current != NULL){
         ++i;
@@ -134,9 +133,9 @@ void setValue(struct LinkedList *head, int index, void* newVal){
 
 
 //sorts the list (uses a comparison)
-void sortList(struct LinkedList *head){
+void sortList(LinkedList *head){
     //printf("sorting list");
-    struct LinkedList *current = head; 
+    LinkedList *current = head; 
     int size = 0;
     while(current != NULL){
         size++;
@@ -156,9 +155,9 @@ void sortList(struct LinkedList *head){
 }
 
 //will remove all duplicate values from list
-void removeDuplicates(struct LinkedList *head){
-    struct LinkedList *prev = head;
-    struct LinkedList *current = head->next;
+void removeDuplicates(LinkedList *head){
+    LinkedList *prev = head;
+    LinkedList *current = head->next;
     int prevIndexCount = 0;
     while (current != NULL)
     {
@@ -174,9 +173,8 @@ void removeDuplicates(struct LinkedList *head){
 } 
 
 
-void printValues(struct LinkedList *head, enum Type valType){
+void printValues(LinkedList *head, enum Type valType){
     while (head != NULL) {
-
         switch (valType)
         {
         case String:
@@ -188,7 +186,7 @@ void printValues(struct LinkedList *head, enum Type valType){
         case Int:
             printf("%d \n", head->val);
             break;
-        case LinkedList:
+        case LList:
             printf("%p \n", head->val);
             break;
         default:

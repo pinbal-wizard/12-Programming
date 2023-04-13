@@ -19,7 +19,6 @@ int main(void) {
     }
     append(&head, (void*)(25));
 
-
     LinkedList funnyHead = {&head};
     append(&funnyHead, &doubleHead);
     append(&funnyHead, &charHead);

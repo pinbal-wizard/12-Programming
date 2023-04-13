@@ -132,6 +132,7 @@ void setValue(LinkedList *head, int index, void* newVal){
 }
 
 
+
 //sorts the list (uses a comparison)
 void sortList(LinkedList *head){
     //printf("sorting list");

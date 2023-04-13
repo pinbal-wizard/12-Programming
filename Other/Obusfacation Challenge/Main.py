@@ -27,31 +27,3 @@ with open("chal1.py", "r") as file:
     for enconding in encodings[::-1]:
         theCode = stolenEncodings[enconding](theCode)
     print(theCode)
-            
-        
-
-
-
-# s = open("__Monkey__", "r").read()
-# s = 
-# s = base64.b85decode(s)
-# s = base64.b32decode(s)
-# s = base64.b85decode(s)
-# s = base64.b85decode(s)
-# s = base64.a85decode(s)
-# s = base64.b64decode(s)
-# s = base64.b32decode(s)
-# s = base64.b32decode(s)
-# s = base64.a85decode(s)
-# s = base64.a85decode(s)
-
-# s = base64.a85decode(s)
-# s = base64.a85decode(s)
-# s = base64.b32decode(s)
-# s = base64.b32decode(s)
-# s = base64.b64decode(s)
-# s = base64.a85decode(s)
-# s = base64.b85decode(s)
-# s = base64.b85decode(s)
-# s = base64.b32decode(s)
-# s = base64.b85decode(s)

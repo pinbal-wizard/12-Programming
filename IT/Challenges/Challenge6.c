@@ -2,8 +2,18 @@
 #include "LinkedList.h"
 
 
-void listPartition(LinkedList list, int x){
+void listPartition(LinkedList *list, int x){
+    LinkedList *prev = NULL;
+    LinkedList *head = list;
+    while (head->next != NULL)
+    {
+        if(head->val >=){
 
+        }
+        prev = head;
+        head = head->next;
+    }
+    
 }
 
 int main(void) {

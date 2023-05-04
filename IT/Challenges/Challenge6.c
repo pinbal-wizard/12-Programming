@@ -35,6 +35,6 @@ int main(void) {
         append(&list, (void*)i);
     }
     printValues(&list, Int);
-    listPartition(**list, 5);
+    //listPartition(**list, 5);
     printValues(&list, Int);
 }

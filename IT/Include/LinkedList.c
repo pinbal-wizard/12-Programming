@@ -76,6 +76,16 @@ void appendArray(LinkedList *LinkedListPointer ,int values[],int valuesLength){
 }
 
 
+void appendList(LinkedList *dest, LinkedList *source){
+    LinkedList *linkedListPointer = dest;
+    while (linkedListPointer->next != NULL)
+    {
+        linkedListPointer = linkedListPointer->next;
+    }
+    linkedListPointer->next = source;
+}
+
+
 //remove a LinkedList from the list based of value
 void removeNode(LinkedList **head, void* val) {
     LinkedList *prev = NULL;
@@ -197,6 +207,16 @@ void printValues(LinkedList *head, enum Type valType){
         //printf("LinkedList at %p contains ( %p , %d)\n",head, head->next, head->val);
         head = head->next;
     }
+}
+
+
+int count(LinkedList *head){
+    int count = 1;
+    while(head->next != NULL){
+        count += 1;
+        head = head->next;
+    }
+    return count;
 }
 
 

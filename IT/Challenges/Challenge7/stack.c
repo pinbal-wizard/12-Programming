@@ -7,7 +7,7 @@
 
 // Do not change anything in this struct definition
 struct node {
-	int data;
+	void* data;
 	struct node *next;
 };
 
@@ -62,19 +62,19 @@ int is_empty(stack inp) {
     return 0;
 }
 
-void push(stack inp, int val) {
+void push(stack inp, void* val) {
     struct node* newNode = malloc(sizeof(struct node));
     newNode->data = val;
     newNode->next = inp->top == NULL ? NULL : inp->top;
     inp->top = newNode;
 }
 
-int pop(stack inp) {
+void* pop(stack inp) {
     if(inp->top == NULL){
         assert(!is_empty(inp));
     }
     struct node* popNode = inp->top;
-    int val = popNode->data;
+    void* val = popNode->data;
     inp->top = popNode->next;
     free(popNode);
     return val;
@@ -85,24 +85,24 @@ int main() {
 	stack s = create();
     printf("%p \n",&s->top);
     printf("%s",is_empty(s) ? "Empty \n" : "Not Empty \n");
-    push(s,12);
+    push(s,(void*)12);
     printf("%s",is_empty(s) ? "Empty \n" : "Not Empty \n");
     printf("popped %i \n",pop(s));
     printf("%s",is_empty(s) ? "Empty \n" : "Not Empty \n");
-    push(s,12);
-    push(s,11);
-    push(s,1);
+    push(s,(void*)12);
+    push(s,(void*)"Not An int");
+    push(s,(void*)1);
+    printf("popped %i \n",pop(s));
+    printf("popped %s \n",pop(s));
     printf("popped %i \n",pop(s));
     printf("popped %i \n",pop(s));
     printf("popped %i \n",pop(s));
-    printf("popped %i \n",pop(s));
-    printf("popped %i \n",pop(s));
-    push(s,12);
+    push(s,(void*)12);
     empty(s);
     printf("%s",is_empty(s) ? "Empty \n" : "Not Empty \n");
-    push(s,12);
-    push(s,12);
-    push(s,12);
+    push(s,(void*)12);
+    push(s,(void*)12);
+    push(s,(void*)12);
     destroy(s);
     printf("popped %i \n",pop(s));
 }

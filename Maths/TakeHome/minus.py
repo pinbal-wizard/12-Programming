@@ -9,4 +9,4 @@ def minus(filepath, amount):
                 newfile.write(str(num) + "\n")
     
 
-minus(r"sec5",-8.1)
+minus(r"sec3",-7.85)

@@ -1,7 +1,5 @@
 #include <stdio.h>
-
-
-
+#include <hashtable.h> 
 
 
 int main(void) {
@@ -10,5 +8,5 @@ int main(void) {
     printf("Please Enter The password:  ");
     scanf("%s",&usrInp);
 
-    printf("%s",usrInp);
+    int base64 = hash
 }

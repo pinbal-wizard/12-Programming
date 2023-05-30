@@ -1,0 +1,6 @@
+CloudAudit.png: https://www.researchgate.net/figure/Different-steps-of-the-cloud-security-auditing-process_fig1_328757920
+Contact.jpg: Royalty free image from internet
+Encrypt.jpg: https://www.kaspersky.com/resource-center/definitions/encryption
+vulnerability-assessment.png: https://www.imperva.com/learn/application-security/vulnerability-assessment/
+SCC.png: https://www.intechopen.com/chapters/64915
+247Monitor.png: https://vijilan.com/blog/why-is-24-7-cyber-security-monitoring-essential/

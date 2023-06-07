@@ -66,3 +66,36 @@ footer {
     padding: 8px 0;
     color: #333;
 }
+
+/* Rest of your existing CSS code */
+
+.employees {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.employee {
+    text-align: center;
+    margin: 20px;
+    flex-basis: 35%; /* Adjust the width of each employee item as desired */
+}
+
+.employee img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.employee-details {
+    text-align: center;
+    margin-top: 10px; /* Add some spacing between the image and details */
+}
+
+.employee-name {
+    font-weight: bold;
+}
+
+.employee-position {
+    color: gray;
+}

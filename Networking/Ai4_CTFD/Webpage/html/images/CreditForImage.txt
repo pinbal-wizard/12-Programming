@@ -4,3 +4,4 @@ Encrypt.jpg: https://www.kaspersky.com/resource-center/definitions/encryption
 vulnerability-assessment.png: https://www.imperva.com/learn/application-security/vulnerability-assessment/
 SCC.png: https://www.intechopen.com/chapters/64915
 247Monitor.png: https://vijilan.com/blog/why-is-24-7-cyber-security-monitoring-essential/
+Employee images: self

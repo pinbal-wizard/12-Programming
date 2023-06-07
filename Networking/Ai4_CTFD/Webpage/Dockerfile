@@ -1,4 +1,3 @@
-FROM ubuntu
 FROM nginx
 
 RUN echo hello
@@ -15,7 +14,6 @@ COPY html/images /usr/share/nginx/html/images
 RUN apt-get update && \
       apt-get -y install sudo
 
-#add ssh
 
 EXPOSE 80
 

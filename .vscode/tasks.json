@@ -4,7 +4,7 @@
         {
             "label": "Build ccg",
             "type": "shell",
-            "command": "ccg ${relativeFile}",
+            "command": "ccg.bat ${relativeFile}",
             "group": {
                 "kind": "build",
                 "isDefault": true

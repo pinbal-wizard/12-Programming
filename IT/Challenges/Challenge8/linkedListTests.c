@@ -19,6 +19,8 @@ void main(){
     printf("%i is at index 2\n",getValue(list,2));
     printf("%i is at index 20\n",getValue(list,20));
 
+    scanf("%i");
+
     LinkedList* list2  = createLinkedList((void*)10);
     for(int i = 0; i < 10; ++i){
         append(list2,(void*)(5*i));

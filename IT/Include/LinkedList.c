@@ -43,7 +43,7 @@ int getIndex(LinkedList* head, void* val){
 
 //find value at index
 //returns value if found NULL if not
-void* getValue(LinkedList *head, int index){
+void* getValue(LinkedList* head, int index){
     Node *current = head->data;
     int i = 0;
 

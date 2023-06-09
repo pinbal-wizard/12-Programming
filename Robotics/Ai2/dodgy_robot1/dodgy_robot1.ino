@@ -1,6 +1,6 @@
 // Define motor pins
-#define MOTOR_LEFT_F 2   //Input1 Control pin for left motor, forward direction
-#define MOTOR_LEFT_B 3   //Input2 Control pin for left motor, backward direction
+#define MOTOR_LEFT_F 3   //Input1 Control pin for left motor, forward direction
+#define MOTOR_LEFT_B 2   //Input2 Control pin for left motor, backward direction
 #define MOTOR_RIGHT_F 4  //Input4 Control pin for right motor, forward direction
 #define MOTOR_RIGHT_B 5  //Input3 Control pin for right motor, backward direction
 
@@ -13,11 +13,13 @@
 #define THROTTLE_OUT_RIGHT 10  // PWM output pin for setting speed (speed control)
 
 // Define states
-#define STOP 0     // Motors stopped
-#define FORWARD 1  // Moving forward
-#define REVERSE 2  // Moving backwards
-#define LEFT 3     // Turning left
-#define RIGHT 4    // Turning right
+#define STOP 11     // Motors stopped
+#define FORWARD 22  // Moving forward
+#define REVERSE 00  // Moving backwards
+#define LEFT 12     // Turning left
+#define LEFTREV 02     // Turning left with reverse
+#define RIGHT 21    // Turning right
+#define RIGHTREV 20    // Turning right
 
 int state = STOP;  // Initialize the state of the robot as stopped
 
@@ -53,7 +55,6 @@ void setup() {
  * Otherwise, it powers both motors to move forward and returns FORWARD.
  */
 int goForward(int lineLeft, int lineRight) {
-  if (lineLeft && lineRight) return STOP;
   if (lineLeft) return RIGHT;
   if (lineRight) return LEFT;
 
@@ -70,10 +71,6 @@ int goForward(int lineLeft, int lineRight) {
  * If the line is detected by either sensor, it returns appropriate turn.
  */
 int goBackward(int lineLeft, int lineRight) {
-  if (!lineLeft && !lineRight) return FORWARD;
-  if (lineLeft) return RIGHT;
-  if (lineRight) return LEFT;
-
   digitalWrite(MOTOR_LEFT_B, HIGH);
   digitalWrite(MOTOR_LEFT_F, LOW);
   digitalWrite(MOTOR_RIGHT_B, HIGH);
@@ -88,11 +85,7 @@ int goBackward(int lineLeft, int lineRight) {
  * If the line is detected by left sensor, it returns RIGHT.
  */
 int turnLeft(int lineLeft, int lineRight) {
-  if (!lineLeft && !lineRight) return FORWARD;
-  if (lineLeft && lineRight) return STOP;
-  if (lineLeft) return RIGHT;
-
-  digitalWrite(MOTOR_LEFT_B, HIGH);
+  digitalWrite(MOTOR_LEFT_B, LOW);
   digitalWrite(MOTOR_LEFT_F, LOW);
   digitalWrite(MOTOR_RIGHT_F, HIGH);
   digitalWrite(MOTOR_RIGHT_B, LOW);
@@ -106,14 +99,10 @@ int turnLeft(int lineLeft, int lineRight) {
  * If the line is detected by right sensor, it returns LEFT.
  */
 int turnRight(int lineLeft, int lineRight) {
-  if (!lineLeft && !lineRight) return FORWARD;
-  if (lineLeft && lineRight) return STOP;
-  if (lineRight) return LEFT;
-
-  digitalWrite(MOTOR_LEFT_F, HIGH);
   digitalWrite(MOTOR_LEFT_B, LOW);
-  digitalWrite(MOTOR_RIGHT_B, HIGH);
+  digitalWrite(MOTOR_LEFT_F, HIGH);
   digitalWrite(MOTOR_RIGHT_F, LOW);
+  digitalWrite(MOTOR_RIGHT_B, LOW);
   return RIGHT;
 }
 
@@ -124,9 +113,6 @@ int turnRight(int lineLeft, int lineRight) {
  * If the line is detected by both sensors, it returns STOP.
  */
 int stop(int lineLeft, int lineRight) {
-  if (!lineLeft && !lineRight) return FORWARD;
-  if (lineRight) return LEFT;
-  if (lineLeft) return RIGHT;
   digitalWrite(MOTOR_LEFT_F, LOW);
   digitalWrite(MOTOR_LEFT_B, LOW);
   digitalWrite(MOTOR_RIGHT_F, LOW);
@@ -140,6 +126,47 @@ void setSpeed(int speed) {
   analogWrite(THROTTLE_OUT_RIGHT, speed);
 }
 
+void displayState(int state){
+  switch(state){
+    case STOP:
+      Serial.print("STOP");
+      break;
+    case FORWARD:
+      Serial.print("FORWARD");
+      break;
+    case REVERSE:
+      Serial.print("REVERSE");
+      break;
+    case LEFT:
+      Serial.print("LEFT");
+      break;
+    case RIGHT:
+      Serial.print("RIGHT");
+      break;
+    default:
+     Serial.print("Other State please #define");
+  }
+}
+
+int getState(){
+  lineLeft = !digitalRead(TRACKER_LEFT);
+  lineRight = !digitalRead(TRACKER_RIGHT);
+
+  state = 0;
+
+  if(lineLeft){
+
+  }
+  if(lineRight == 1){
+    state = RIGHT;
+  } else {
+    state = LEFT;
+  }
+
+
+  return state;
+}
+
 /*
  * loop function runs continuously after the setup function has completed.
  * It controls the movement of the robot.
@@ -147,25 +174,29 @@ void setSpeed(int speed) {
  * and updates the state of the robot accordingly.
  */
 void loop() {
-  /*motorOn = digitalRead(MOTOR_STATE);
+  
+  motorOn = digitalRead(MOTOR_STATE);
   digitalWrite(LED_BUILTIN, motorOn);
   if (!motorOn){
-    state = stop(lineLeft, lineRight);
     setSpeed(0);
-    Serial.println(-1);
-    return;
-  }*/
+    Serial.print(-1);
+  }else{
+    Serial.print(1);
+    setSpeed(255);
+  }
+  Serial.print("  ");
 
-  lineLeft = digitalRead(TRACKER_LEFT);
-  lineRight = digitalRead(TRACKER_RIGHT);
-  Serial.println(lineLeft +  " :  " + lineRight);
+
+  Serial.print(lineLeft);
+  Serial.print("  ");
+  Serial.print(lineRight);
+  Serial.print("  ");
   /*
   // THROTTLE is an analog input, so use analogRead() instead of digitalRead()
   //speed = analogRead(THROTTLE_IN);
-  //speed = map(speed, 0, 1024, 0, 255);
-  speed = 200;
-  setSpeed(speed);
-  Serial.println(state);
+  //speed = map(speed, 0, 1024, 0, 255);*/
+  state = getState();
+  displayState(state);
   switch(state){
     case FORWARD:
     state = goForward(lineLeft, lineRight);
@@ -183,6 +214,7 @@ void loop() {
     state = stop(lineLeft, lineRight);
     break;
   }
+  Serial.println();
   // If the robot is stopped, it doesn't move.
-  // (You don't seem to have a 'stop' function, so this will cause an error.)*/
+  // (You don't seem to have a 'stop' function, so this will cause an error.)
 }

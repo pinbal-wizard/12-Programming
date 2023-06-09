@@ -27,7 +27,7 @@ void addEntry(Dictionary *dict, int key, int value);
 int search(Dictionary *dict, int key);
 
 // Function to delete an entry given a key
-void deleteEntry(Dictionary *dict, int key);
+int deleteEntry(Dictionary *dict, int key);
 
 // Function to display all key-value pairs in the dictionary
 void display(Dictionary *dict);

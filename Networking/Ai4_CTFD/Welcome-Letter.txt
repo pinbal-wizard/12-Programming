@@ -1,0 +1,82 @@
+Hello and welcome to SuperSecureServices, the most secure cybersecurity company out there! We are thrilled to have you on board as a valuable member of our team 
+and are confident that your presence will help establish your career as a top-of-the-line security engineer.
+
+Let us provide you with a brief history of our esteemed company. 
+
+SuperSecureServices was founded in 1998 by a visionary team of cybersecurity experts who recognized the increasing importance of protecting sensitive data 
+in an evolving digital landscape. Their mission was to establish an unparalleled level of security solutions 
+and services to safeguard businesses and individuals from cyber threats.
+
+From its humble beginnings in a small garage, the company quickly gained recognition for its innovative approaches to cybersecurity. 
+Its groundbreaking research and development efforts led to the creation of cutting-edge technologies that set new standards in the industry.
+
+In 2005, SuperSecureServices made a significant breakthrough with the development of its revolutionary encryption algorithm, CodexShield. 
+This algorithm became renowned for its impenetrable security and was adopted by various government agencies and Fortune 500 companies, 
+solidifying SuperSecureCompany's reputation as a leader in the field.
+
+The company's commitment to excellence and continuous improvement propelled its growth, 
+leading to the establishment of multiple global offices and strategic partnerships with renowned cybersecurity organizations. 
+SuperSecureCompany's client portfolio expanded to encompass industries such as finance, healthcare, defense, and technology, 
+catering to the unique security needs of each sector.
+
+In 2012, SuperSecureServices made headlines by successfully thwarting a sophisticated cyberattack targeting a major financial institution. 
+The incident showcased the company's expertise in proactive threat detection and incident response, 
+cementing its position as a trusted ally in the ongoing battle against cybercrime.
+
+Over the years, SuperSecureServices has remained at the forefront of cybersecurity innovation. 
+It has launched numerous groundbreaking products and solutions, including advanced threat intelligence platforms, secure cloud storage systems, 
+and AI-powered intrusion detection systems. These offerings have empowered organizations worldwide to stay one step ahead of emerging threats and 
+protect their valuable assets.
+
+Today, SuperSecureServices stands as a global leader in cybersecurity, recognized for its unwavering commitment to providing state-of-the-art solutions, 
+unrivaled expertise, and unparalleled customer support. As a new member of our team, you join a legacy of excellence, and 
+we are confident that your skills and dedication will contribute to our continued success in safeguarding the digital world.
+
+
+
+Once again, welcome to SuperSecureCompany, where we redefine the boundaries of cybersecurity and ensure a safer digital future for all.
+
+To begin your journey with us, it is important to link your Microsoft TwoDrive account. This will ensure smooth collaboration and secure storage of your work files. 
+To ensure seamless collaboration and secure storage of your work files, it is important to link your Microsoft TwoDrive account. 
+By integrating your Microsoft account with our systems, you gain access to advanced file management capabilities, enhanced data security measures,
+and streamlined document sharing across the company. This integration allows for synchronized updates and real-time collaboration, 
+enabling efficient teamwork and improved productivity. To link your Microsoft TwoDrive account, follow the step-by-step guide provided below:
+
+Navigate to the company portal and locate the "Account Settings" section.
+Click on the "Linked Accounts" tab and select the option to link a Microsoft account.
+You will be redirected to the Microsoft login page. Enter your Microsoft account credentials and sign in.
+Once successfully signed in, grant the necessary permissions for SuperSecureCompany to access your Microsoft TwoDrive.
+Confirm the linkage by verifying your email address associated with the Microsoft account.
+Your Microsoft TwoDrive account is now successfully linked to our systems.
+
+With your Microsoft TwoDrive account linked, you can easily share files, collaborate with colleagues, and access important documents from any device with 
+internet connectivity. This integration is an essential step in optimizing your workflow and ensuring secure data management within SuperSecureCompany. 
+If you encounter any issues during the linking process, please reach out to our IT support team for assistance.
+
+Additionally, as you settle into your new position, you will need to set up your work environment. 
+Please remember to link your social security number for administrative purposes.
+
+As part of our vibrant company culture, we encourage you to join our Discord server. Here, we organize various events and activities, 
+including a CS:GO tournament every Thursday. However, please note that if it falls on the 17th of the month, the tournament will be rescheduled due to 
+Albert's golfing tournament. Additionally, in the month of May, the tournament is canceled.
+
+In order to streamline your work processes, we request that you link your Google Drive account as well. 
+This will facilitate file sharing and collaboration within the team.
+
+We understand that work-life balance is essential, so if you play games like LoL or DoTA2, 
+we want to ensure your well-being. Here is the suicide prevention hotline and a list of the top 10 anime betrayals, should you ever need support.
+
+Enclosed with this letter, you will find a comprehensive guide on how to set up your new system and change your default password. Please follow these steps carefully:
+
+    Start up your work environment and open the terminal.
+    Log in to your account using the following default credentials:
+    Username: USER
+    Password: USER
+    Note: ALL DEFAULT COMPANY PASSWORDS ARE THE SAME AS THE USERNAME. PLEASE REMEMBER TO CHANGE IT.
+    Change your password with the assistance of your division manager.
+    Once your new password is set up, you're ready to dive into your work!
+
+Once again, we extend a warm welcome to you at SuperSecureCompany. We look forward to working together and achieving great things.
+
+Sincerely,
+Josh Hancock

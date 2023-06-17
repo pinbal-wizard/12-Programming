@@ -35,6 +35,11 @@ int bitPatternSearch(unsigned int search, unsigned int pattern, unsigned int n){
 int main(void) {
     printf("\n\n %i \n\n",bitPatternSearch(0xe1f4,0x5, 3));
     //printf("%i", 1 ); 1110 0001 1111 0100 ,101 ,3  should return 11
-}                     //0010 1111 1000 0111 0
+                      //0010 1111 1000 0111 0
+
+    printf("insaity");
+}
+
+
 
 

@@ -12,7 +12,7 @@ Dictionary *create(int capacity) {
     return dict;
 }
 
-//azhar
+//Azhar
 int isEmpty(Dictionary *dict) {
     if(dict->size==0){
         return 1;
@@ -21,7 +21,7 @@ int isEmpty(Dictionary *dict) {
 }
 
 
-// daniel
+// Daniel 
 int isFull(Dictionary *dict) {
     if(dict->size==dict->capacity-1){
         return 1;

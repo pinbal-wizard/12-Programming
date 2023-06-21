@@ -1,15 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "dictionary.h"
+#include "LinkedList.h"
 
 // Function to create a new dictionary
 // Already done for you, implement the other functions
 Dictionary *create(int capacity) {
     Dictionary *dict = (Dictionary *)malloc(sizeof(Dictionary));
-    dict->entries = (KeyValuePair *)malloc(capacity * sizeof(KeyValuePair));
+    dict->entries = (int** )malloc(capacity * sizeof(int));
     dict->size = 0;
     dict->capacity = capacity;
     return dict;
+}
+
+
+int Hash(int inp, int size){
+    int sum = inp;
+
+    sum = sum % size;
+    return sum;
 }
 
 //Azhar
@@ -23,7 +32,7 @@ int isEmpty(Dictionary *dict) {
 
 // Daniel 
 int isFull(Dictionary *dict) {
-    if(dict->size==dict->capacity-1){
+    if(dict->size==dict->capacity){
         return 1;
     }
     return 0;
@@ -31,42 +40,47 @@ int isFull(Dictionary *dict) {
 
 
 // Function to add a key-value pair to the dictionary
-void addEntry(Dictionary *dict, int key, int value) {
+int addEntry(Dictionary *dict, int value) {
     if (isFull(dict)) {
         printf("Error: Dictionary is full, cannot add more entries.\n");
-        return;
+        return -1;
     }
-    KeyValuePair KeyValue = {key,value};
-    dict->entries[dict->size] = KeyValue;
+    int hashVal = Hash(value, dict->capacity);
+    if(dict->entries[hashVal] != 0){
+        printf("Error: hash Collsion");
+        return -1;
+    }
+    int* val = (int*)malloc(sizeof(int));
+    val = value;
+    dict->entries[hashVal] = val;
     dict->size++;
+    return 1;
 }
 
 //azhar
-int search(Dictionary *dict, int key) {
-    for(int i = 0; i < dict->size;i++){
-        if(dict->entries[i].key==key){
-            return dict->entries[i].value;
-        }
+int search(Dictionary *dict, int hashVal) {
+    if(dict->entries[hashVal] == NULL){
+        return -1;
     }
-    return -1; // Key not found
+    int resultP = dict->entries[hashVal];
+    return *resultP;
 }
 
 
 // 
-int deleteEntry(Dictionary *dict, int key) {
-        for(int i = 0; i < dict->size;i++){
-        if(dict->entries[i].key==key){
-            free(&(dict->entries[i]));
-            return 1;
-        }
+int deleteEntry(Dictionary *dict, int hashVal) {
+    if(dict->entries[hashVal] == 0){
+        printf("Error: No entry");
+        return -1;
     }
-    return -1; // Key not found
+    free(&(dict->entries[hashVal]));
+    return 1;
 }
 
 // Function to display all key-value pairs in the dictionary
 void display(Dictionary *dict) {
-    for(int i = 0; i < dict->size; i++){
-        printf("index %i is %i\n",dict->entries[i].key,dict->entries[i].value);
+    for(int i = 0; i < dict->capacity; i++){
+        printf("index %i is %i\n",i,dict->entries[i]);
     }
 }
 
@@ -89,10 +103,10 @@ void runTests() {
     }
 
     // Test addEntry and search functions
-    addEntry(dict, 1, 10);
-    addEntry(dict, 2, 20);
-    addEntry(dict, 3, 30);
-    if (search(dict, 2) == 20) {
+    addEntry(dict, 10);
+    addEntry(dict, 20);
+    addEntry(dict, 30);
+    if (search(dict, Hash(20,dict->capacity)) == 20) {
         printf("Test 2 Passed: Value 20 found for key 2.\n");
     } else {
         printf("Test 2 Failed: Value for key 2 should be 20.\n");

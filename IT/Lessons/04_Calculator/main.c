@@ -29,4 +29,5 @@ int main(void){
     default:
         break;
     }
+    return 1;
 } 

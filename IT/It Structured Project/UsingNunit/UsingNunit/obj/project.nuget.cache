@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "tHJkGtWFSeodII0Rmy7CABk3ZnDapp5ghwwhMKga8E0xBfUJby/+QcLWxjB/VWDxTHRwN1IDAS3HjdmuuIEdgw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\thomw\\Documents\\Programming\\IT\\UsingNunit\\UsingNunit\\UsingNunit.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thomw\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\thomw\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\thomw\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\thomw\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\It Structured Project",
+    "\\It Structured Project\\Lessons",
+    "\\It Structured Project\\Lessons\\Lesson04 XP",
+    "\\It Structured Project\\Lessons\\Lesson04 XP\\Rectangle"
   ],
-  "SelectedNode": "\\CustomerManagementSystem.sln",
+  "SelectedNode": "\\It Structured Project\\Lessons\\Lesson04 XP\\Rectangle\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
